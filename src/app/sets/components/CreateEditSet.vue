@@ -5,17 +5,17 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex';
+  import { mapActions } from 'vuex'
 
   export default {
-    name: 'accounts-create-edit-view',
+    name: 'sets-create-edit-view',
 
     methods: {
       ...mapActions([
         'addSet'
       ])
     }
-  };
+  }
 </script>
 
 <style scoped lang='scss'>
