@@ -5,6 +5,7 @@ import Vue from 'vue'
 import 'bulma/css/bulma.css'
 
 import { App } from './app'
+// import AppStyles from './css/app.css'
 import router from './router'
 import store from './store'
 
