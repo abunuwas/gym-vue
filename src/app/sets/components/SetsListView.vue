@@ -9,13 +9,15 @@
         {{ set.date }}
         <span class="tag is-small is-info">{{ categories[set.category] }}</span>
         {{ set.repetitions }}
+        <a @click="confirmDeleteSet(set)">Delete</a>
+        <router-link :to="{ name: 'editSet', params: { setId: set.id } }"></router-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import { CATEGORIES } from '../../../consts'
 
   export default {
@@ -24,6 +26,17 @@
     data () {
       return {
         categories: CATEGORIES
+      }
+    },
+    methods: {
+      // this imports our vuex actions and maps them to methods on this component
+      ...mapActions([
+        'deleteSet'
+      ]),
+      confirmDeleteSet (set) {
+        if (confirm(`Are you sure you want to delete ${set.date}?`)) {
+          this.deleteSet(set)
+        }
       }
     },
 
