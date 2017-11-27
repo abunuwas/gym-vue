@@ -6,9 +6,9 @@
 
     <ul>
       <li v-for="set, key in sets">
-        {{ account.name }}
-        <span class="tag is-small is-info">{{ categories[account.category] }}</span>
-        ${{ account.balance }}
+        {{ set.date }}
+        <span class="tag is-small is-info">{{ categories[set.category] }}</span>
+        {{ set.repetitions }}
       </li>
     </ul>
   </div>

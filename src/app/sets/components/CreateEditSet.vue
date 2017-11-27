@@ -5,11 +5,11 @@
     <router-link :to="{ name: 'setsListView' }">View all sets</router-link>
 
     <form class="form" @submit.prevent="saveNewSet">
-      <label for="name" class="label">Name</label>
+      <label for="date" class="label">Date</label>
       <p class="control">
-        <input type="text" class="input" name="name" v-model="newSet.name">
+        <input type="text" class="input" name="name" v-model="newSet.date">
       </p>
-      <label for="category" class="label">Category</label>
+      <label for="category" class="label">Exercise</label>
       <p class="control">
         <span class="select">
           <select name="category" v-model="newSet.category">
@@ -17,9 +17,9 @@
           </select>
         </span>
       </p>
-      <label for="balance" class="label">Balance</label>
+      <label for="repetitions" class="label">Reps</label>
       <p class="control">
-        <input type="text" class="input" name="balance" v-model="newSet.balance">
+        <input type="text" class="input" name="balance" v-model="newSet.repetitions">
       </p>
       <div class="control is-grouped">
         <p class="control">
