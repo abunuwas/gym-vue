@@ -28,11 +28,13 @@
         categories: CATEGORIES
       }
     },
+
     methods: {
       // this imports our vuex actions and maps them to methods on this component
       ...mapActions([
         'deleteSet'
       ]),
+
       confirmDeleteSet (set) {
         if (confirm(`Are you sure you want to delete ${set.date}?`)) {
           this.deleteSet(set)
