@@ -1,4 +1,4 @@
-import { Vue } from 'vuex'
+import Vue from 'vue'
 import { guid } from '../../../utils'
 
 export default {
@@ -12,6 +12,6 @@ export default {
   },
 
   DELETE_SET (state, payload) {
-    Vue.delete(state.set, payload.set.id)
+    Vue.delete(state.sets, payload.set.id)
   }
 }
