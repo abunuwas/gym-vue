@@ -55,11 +55,7 @@
         let selectedSet = this.getSetById(this.$route.params.setId)
         if (selectedSet) {
           this.editing = true
-          this.selectedSet = {
-            date: selectedSet.date,
-            category: selectedSet.category,
-            id: selectedSet.id``
-          }
+          this.selectedSet = Object.assign({}, selectedSet)
         }
         // TODO: the object does not exist, how do we handle this scenario?
       }

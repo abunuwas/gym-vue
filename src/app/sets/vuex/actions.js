@@ -24,11 +24,7 @@ export const loadSets = (state) => {
   // later we might want to be able to force reload them
   if (!state.sets || Object.keys(state.sets).length === 0) {
     return fetchSets().then((res) => {
-      let sets = {}
-      Object.keys(res).forEach((key) => {
-        sets[res[key].id] = res[key]
-        state.commit('LOAD_SETS', sets)
-      })
+      state.commit('LOAD_SETS', res)
     })
   }
 }

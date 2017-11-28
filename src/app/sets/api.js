@@ -1,10 +1,11 @@
 import localforage from 'localforage'
+import { processAPIData } from '../../utils'
 
 const SET_NAMESPACE = 'SET-'
 
 export const fetchSets = () => {
   return localforage.startsWith(SET_NAMESPACE).then((res) => {
-    return res
+    return processAPIData(res)
   })
 }
 
