@@ -11,5 +11,9 @@ export default {
 
   DELETE_SET (state, payload) {
     Vue.delete(state.sets, payload.set.id)
+  },
+
+  LOAD_SETS (state, payload) {
+    state.sets = payload
   }
 }

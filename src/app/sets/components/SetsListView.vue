@@ -29,10 +29,15 @@
       }
     },
 
+    mounted () {
+      this.loadSets()
+    },
+
     methods: {
       // this imports our vuex actions and maps them to methods on this component
       ...mapActions([
-        'deleteSet'
+        'deleteSet',
+        'loadSets'
       ]),
 
       confirmDeleteSet (set) {

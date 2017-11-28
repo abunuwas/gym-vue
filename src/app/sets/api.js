@@ -2,6 +2,12 @@ import localforage from 'localforage'
 
 const SET_NAMESPACE = 'SET-'
 
+export const fetchSets = () => {
+  return localforage.startsWith(SET_NAMESPACE).then((res) => {
+    return res
+  })
+}
+
 export const saveSet = (set) => {
   return localforage.setItem(
     SET_NAMESPACE + set.id,

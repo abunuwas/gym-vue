@@ -2,7 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import localforage from 'localforage'
-require('localforage-startswith')
 
 import 'bulma/css/bulma.css'
 
@@ -10,6 +9,8 @@ import { App } from './app'
 // import AppStyles from './css/app.css'
 import router from './router'
 import store from './store'
+
+require('localforage-startswith')
 
 localforage.config({
   name: 'gym'
