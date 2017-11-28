@@ -1,21 +1,5 @@
-import localforage from 'localforage'
-
 import { guid } from '../../../utils'
-
-const SET_NAMESPACE = 'SET-'
-
-const saveSet = (set) => {
-  return localforage.setItem(
-    SET_NAMESPACE + set.id,
-    set
-  ).then((value) => {
-    return value
-  }).catch((err) => {
-    console.log(
-      'oops! The set was too far gone! ' + err
-    )
-  })
-}
+import { removeSet, saveSet } from '../api'
 
 export const addSet = ({ commit }, data) => {
   let id = guid()
@@ -32,4 +16,5 @@ export const updateSet = ({ commit }, data) => {
 
 export const deleteSet = ({ commit }, data) => {
   commit('DELETE_SET', { set: data })
+  removeSet(data)
 }
