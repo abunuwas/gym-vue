@@ -3,7 +3,7 @@ export default {
     state.budgets[payload.budget.id] = payload.budget
   },
 
-  UPDATE_BUDTET (state, payload) {
+  UPDATE_BUDGET (state, payload) {
     state.budgets[payload.budget.id] = payload.budget
   },
 
