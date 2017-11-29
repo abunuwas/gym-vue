@@ -7,7 +7,7 @@
 
     <ul>
       <li v-for="budget, key in budgets">
-        {{ budget.month }}
+        {{ budget.month | moment }}
         ${{ budget.budgeted }}
         ${{ budget.spent }}
         ${{ budget.income }}
@@ -19,9 +19,14 @@
 
 <script>
   import { mapState, mapActions } from 'vuex'
+  import { moment } from '../../../filters'
 
   export default {
     name: 'budget-lists',
+
+    filters: {
+      moment
+    },
 
     mounted () {
       this.loadBudgets()
