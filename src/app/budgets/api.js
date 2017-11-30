@@ -27,3 +27,14 @@ export const fetchBudgets = () => {
     return budgets
   })
 }
+
+export const removeBudget = (budget) => {
+  return localforage.removeItem(
+    BUDGET_NAMESPACE + budget.id
+  ).then(() => {
+    return true
+  }).catch((err) => {
+    console.log(err)
+    return false
+  })
+}

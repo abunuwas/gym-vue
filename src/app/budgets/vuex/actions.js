@@ -1,7 +1,7 @@
 import moment from 'moment'
 
 import { guid } from '../../../utils'
-import { saveBudget, fetchBudgets } from '../api'
+import { saveBudget, fetchBudgets, removeBudget } from '../api'
 
 const verifyUniqueMonth = (budgets, budget) => {
   /*
@@ -43,4 +43,9 @@ export const loadBudgets = (state) => {
       state.commit('LOAD_BUDGETS', res)
     })
   }
+}
+
+export const deleteBudget = ({ commit }, data) => {
+  commit('DELETE_BUDGET', { budget: data })
+  removeBudget(data)
 }

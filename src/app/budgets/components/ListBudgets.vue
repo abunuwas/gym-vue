@@ -12,6 +12,7 @@
         ${{ budget.spent }}
         ${{ budget.income }}
         <router-link :to="{ name: 'updateBudget', params: { budgetId: budget.id } }">Edit</router-link>
+        <a @click="confirmDeleteBudget(budget)">Delete</a>
       </li>
     </ul>
   </div>
@@ -34,8 +35,15 @@
 
     methods: {
       ...mapActions([
+        'deleteBudget',
         'loadBudgets'
-      ])
+      ]),
+
+      confirmDeleteBudget (budget) {
+        if (confirm(`Are you sure you want to delete ${budget.month}?`)) {
+          this.deleteBudget(budget)
+        }
+      }
     },
 
     computed: {
