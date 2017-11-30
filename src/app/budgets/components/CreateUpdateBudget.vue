@@ -12,10 +12,13 @@
         <input type="text" class="input" name="budgeted" v-model="selectedBudget.budgeted">
       </p>
       <p class="control">
-        Spent: {{ selectedBudget.spent }}
+        Budgeted: ${{ selectedBudget.budget }}
       </p>
       <p class="control">
-        Income: {{ selectedBudget.income }}
+        Spent: ${{ selectedBudget.spent }}
+      </p>
+      <p class="control">
+        Income: ${{ selectedBudget.income }}
       </p>
       <div class="control is-grouped">
         <p class="control">
