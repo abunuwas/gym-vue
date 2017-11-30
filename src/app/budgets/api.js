@@ -5,7 +5,7 @@ const BUDGET_NAMESPACE = 'BUDGET-'
 
 export const saveBudget = (budget) => {
   budget = Object.assign({}, budget) // clone the object to be able to manipulate it before saving
-  budget.month = budget.month.toJson()
+  budget.month = budget.month.toJSON()
 
   return localforage.setItem(
     BUDGET_NAMESPACE + budget.id,

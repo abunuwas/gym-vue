@@ -41,7 +41,17 @@
     computed: {
       ...mapState({
         'budgets': state => state.budgets.budgets
-      })
+      }),
+
+      sortedBudgets () {
+        let sortedKeys = Object.keys(this.budgets).sort((a, b) => {
+          return this.budgets[b].month - this.budgets[a].month
+        })
+
+        return sortedKeys.map((key) => {
+          return this.budgets[key]
+        })
+      }
     }
   }
 </script>
