@@ -52,7 +52,6 @@
       </tr>
       </tfoot>
     </table>
-    <create-update-budget-category></create-update-budget-category>
     <CreateUpdateBudgetCategory v-on:add-budget-category="addBudgetCategory"></CreateUpdateBudgetCategory>
   </div>
 
