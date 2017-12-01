@@ -51,16 +51,37 @@
 
     methods: {
       ...mapActions([
+        'createCategory'
       ]),
 
       processSave () {
         this.$emit('add-budget-category', this.budgetCategory)
         this.budgetCategory = {}
+      },
+
+      handleCreateCategory (category) {
+        let newCategory = { name: category }
+        this.createCategory(newCategory).then((val) => {
+          this.updateCategorySelection(val)
+        })
+      },
+
+      updateCategorySelection (category) {
+        /*
+        If using v-model and not using Vue.set directly,
+        vue-multiselect seems to struggle to properly keep
+        its internal value up to date with the value in our
+        component. So we're skipping v-model and handling
+        updates manually.
+         */
+
+        this.$set(this.budgetCategory, 'category', category)
       }
     },
 
     computed: {
       ...mapGetters([
+        'getCategorySelectList'
       ])
     }
   }
