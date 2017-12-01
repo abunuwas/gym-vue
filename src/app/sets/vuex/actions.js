@@ -12,6 +12,9 @@ export const addSet = ({ commit }, data) => {
 
 export const updateSet = ({ commit }, data) => {
   commit('UPDATE_SET', { set: data })
+  saveSet(data).then((value) => {
+    // set saved
+  })
 }
 
 export const deleteSet = ({ commit }, data) => {

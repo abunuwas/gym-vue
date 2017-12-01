@@ -91,7 +91,7 @@
 
     computed: {
       ...mapGetters([
-        'getSetById`'
+        'getSetById'
       ])
     }
   }

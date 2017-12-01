@@ -1,18 +1,52 @@
 <template>
   <div id="sets-list-view">
-    I'm a list of sets!
-
-    <router-link :to="{ name: 'createEditSet' }">Add a new set</router-link>
-
-    <ul>
-      <li v-for="set, key in sets">
-        {{ set.date }}
-        <span class="tag is-small is-info">{{ categories[set.category] }}</span>
-        {{ set.repetitions }}
-        <a @click="confirmDeleteSet(set)">Delete</a>
-        <router-link :to="{ name: 'editSet', params: { setId: set.id } }"></router-link>
-      </li>
-    </ul>
+    <nav class="level-left">
+      <div class="leve-left">
+        <h1 class="title is-2">Accounts</h1>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <router-link :to="{ name: 'createEditSet' }">
+            Add a new set
+          </router-link>
+        </div>
+      </div>
+    </nav>
+    <table class="table is-bordered">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Exercise</th>
+        <th>Repetitions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="set, key in sets">
+        <td class="subtitle is-5">
+          <span class="tag is-5">{{ set.date }}</span>
+        </td>
+        <td>
+          <span class="tag is-small">
+            {{ categories[set.category] }}
+          </span>
+        </td>
+        <td>
+          <span class="subtitle is-5">
+            {{ set.repetitions }}
+          </span>
+        </td>
+        <td>
+          <router-link
+            class="button is-primary"
+            :to="{ name: 'editSet', params: { setId: set.id } }"
+          >
+            Edit
+          </router-link>
+          <a class="button is-danger" @click="confirmDeleteSet(set)">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
