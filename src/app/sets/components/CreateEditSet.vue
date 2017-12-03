@@ -1,37 +1,76 @@
 <template>
   <div class="sets-create-edit-view">
-    You can create and edit sets with me!
-
-    <router-link :to="{ name: 'setsListView' }">View all sets</router-link>
-
-    <form class="form" @submit.prevent="processSave">
-      <label for="date" class="label">Date</label>
-      <p class="control">
-        <input type="text" class="input" name="name" v-model="selectedSet.date">
-      </p>
-      <label for="category" class="label">Exercise</label>
-      <p class="control">
-        <span class="select">
-          <select name="category" v-model="selectedSet.category">
-            <option v-for="value, key in categories" :value="key">{{ value }}</option>
-          </select>
-        </span>
-      </p>
-      <label for="repetitions" class="label">Reps</label>
-      <p class="control">
-        <input type="text" class="input" name="balance" v-model="selectedSet.repetitions">
-      </p>
-      <div class="control is-grouped">
-        <p class="control">
-          <button class="button is-primary">Submit</button>
-        </p>
-        <p class="control">
-          <router-link :to="{ name: 'setsListView' }">
-            <button class="button is-link">Cancel</button>
-          </router-link>
-        </p>
+    <nav class="level">
+      <div class="level-left">
+        <h1 class="title is-2">Add a set</h1>
       </div>
-    </form>
+      <div class="level-right">
+        <div class="level-item">
+          <router-link
+            :to="{ name: 'setsListView' }"
+            class="button"
+          >View all sets &#8630;</router-link>
+        </div>
+      </div>
+    </nav>
+
+    <div class="columns">
+      <div class="column is-6">
+        <form class="form" @submit.prevent="processSave">
+          <label for="name" class="date">Date</label>
+          <p class="control">
+            <input
+              type="text"
+              class="input"
+              name="name"
+              v-model="selectedSet.date"
+            >
+          </p>
+          <label
+            for="category"
+            class="category"
+          >Category</label>
+          <p class="control">
+            <span class="select">
+              <select
+                name="category"
+                v-model="selectedSet.category">
+                <option
+                  v-for="value, key in categories"
+                  :value="key"
+                >{{ value }}</option>
+              </select>
+            </span>
+          </p>
+          <label
+            for="repetitions"
+            class="label"
+          >Repetitions</label>
+          <p class="control has-icon" v-if="!editing">
+            <input
+              type="number"
+              class="input"
+              name="repetitions"
+              step="1"
+              v-model="selectedSet.repetitions"
+            >
+          </p>
+          <p v-else>
+            <span>To update the set, add a number of repetitions adjusting the performance</span>
+          </p>
+          <div class="control is-grouped">
+            <p class="control">
+              <button class="button is-success">Submit</button>
+            </p>
+            <p class="control">
+              <router-link :to="{ name: 'setsListView' }">
+                <button class="button is-linked">Cancel</button>
+              </router-link>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 

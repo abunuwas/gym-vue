@@ -2,12 +2,15 @@
   <div id="sets-list-view">
     <nav class="level-left">
       <div class="leve-left">
-        <h1 class="title is-2">Accounts</h1>
+        <h1 class="title is-2">Sets</h1>
       </div>
       <div class="level-right">
         <div class="level-item">
-          <router-link :to="{ name: 'createEditSet' }">
-            Add a new set
+          <router-link
+            :to="{ name: 'createEditSet' }"
+            class="button is-primary"
+          >
+            Add a set +
           </router-link>
         </div>
       </div>
@@ -89,8 +92,4 @@
   }
 </script>
 
-<style scoped lang="scss">
-  #sets-list-view {
-
-  }
-</style>
+<style scoped lang="scss"></style>
