@@ -3,7 +3,8 @@ import * as components from './components'
 export default [
   {
     path: '/budgets',
-    component: components.ListBudgets
+    component: components.ListBudgets,
+    name: 'listBudgets'
   },
   {
     path: '/budgets/create',
